@@ -14,8 +14,6 @@
  * permissions and limitations under the License.
  */
 
-@import 'colors.scss';
-
 .user-list {
   position: relative;
 }
@@ -23,16 +21,4 @@
 app-spinner {
   position: absolute;
   left: 40%;
-}
-
-.table-header-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding-right: 16px;
-  align-items: center;
-
-  h3 {
-    margin: 0;
-  }
 }

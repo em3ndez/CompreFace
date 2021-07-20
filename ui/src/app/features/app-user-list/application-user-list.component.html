@@ -15,20 +15,16 @@
   -->
 
 <div class="app-user-list">
-  <div class="table-header-container">
-    <h3>{{ 'users.title' | translate }}</h3>
-    <form class="search-input">
-      <input
-        matInput
-        type="text"
-        class="search-input"
-        [(ngModel)]="search"
-        placeholder="{{ 'users.search.app_title' | translate }}"
-        [ngModelOptions]="{ standalone: true }"
-      />
-      <mat-icon class="material-icons notranslate">search</mat-icon>
-    </form>
-  </div>
+  <app-search-table
+    [currentRole]="userRole$ | async"
+    [requiredRole]="roleEnum.User"
+    (inputSearch)="onSearch($event)"
+    (modalWindow)="onInviteUser()"
+    title="{{ 'users.title' | translate }}"
+    buttonText="{{ 'users.create.add_button' | translate }}"
+    searchPlaceholder="{{ 'users.search.app_title' | translate }}"
+  >
+  </app-search-table>
   <app-spinner *ngIf="isLoading$ | async"></app-spinner>
   <app-user-table
     class="app-table"
@@ -43,9 +39,4 @@
     (deleteUser)="onDelete($event)"
   >
   </app-user-table>
-  <div class="add-model-button-container" *ngIf="userRole$ | async as userRole">
-    <button *ngIf="userRole !== roleEnum.User" mat-flat-button color="primary" (click)="onInviteUser()">
-      {{ 'common.capital.add' | translate }}
-    </button>
-  </div>
 </div>

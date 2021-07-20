@@ -50,7 +50,7 @@ public class VerifyFacesResponse extends FaceProcessResponse {
             this.faceMatches.forEach(fm -> fm.setEmbedding(null));
         }
 
-        if (!processImageParams.getStatus()) {
+        if (Boolean.FALSE.equals(processImageParams.getStatus())) {
             this.getProcessFileData().setExecutionTime(null);
             this.faceMatches.forEach(fm -> fm.setExecutionTime(null));
             this.setPluginsVersions(null);

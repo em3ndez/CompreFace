@@ -13,25 +13,41 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+@import "mixins.scss";
 
-.application-header {
-  display: flex;
-  justify-content: space-between;
+.app-header {
+  margin-bottom: 24px;
 
-  .name-wrapper,
-  .api-key-wrapper {
+  &--wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
 
-  &_left-coll {
-    width: 100%;
-  }
+    &_name {
+      overflow: hidden;
 
-  &_right-coll {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
+      .mat-headline {
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &_buttons {
+      min-width: 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .mat-icon {
+        @include md-icon-size();
+        cursor: pointer;
+      }
+    }
+
+    .mat-card {
+      padding: 20px 24px;
+    }
   }
 }

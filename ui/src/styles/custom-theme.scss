@@ -1,6 +1,21 @@
-@import '~@angular/material/theming';
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-@import 'colors.scss';
+/*!
+ * Copyright (c) 2020 the original author or authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+@import "~@angular/material/theming";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import "colors.scss";
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -16,7 +31,7 @@ $typography: mat-typography-config(
         $body-1: mat-typography-level(16px, 22.5px, 400), // .mat-body-1
         $body-2: mat-typography-level(14px, 20px, 400), // .mat-body-2
         $caption: mat-typography-level(12px, 17px, 400), // .mat-caption
-        $button: mat-typography-level(16px, 19px, 500),
+        $button: mat-typography-level(16px, 19px, 500), // .mat-button
 );
 
 $primary_palette: (
@@ -71,8 +86,12 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
     text-decoration: none;
   }
 
-  p{
+  p {
     color: $pale-gray;
+  }
+
+  pre {
+    font-family: $font-family;
   }
 
   .mat-toolbar {
@@ -111,21 +130,41 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
     }
   }
 
-  .mat-headline, .mat-title{
+  .mat-headline,
+  .mat-title{
     color: $black;
   }
 
-  .mat-subheading-2, .mat-subheading-1{
+  .mat-subheading-1,
+  .mat-subheading-2,
+  .mat-body-1,
+  .mat-body-2{
     color: $dark-gray;
   }
 
-  .mat-body-1, .mat-body-2, .mat-caption {
-    color: $pale-gray;
+  .mat-subheading-1 {
+    margin-bottom: 7px;
   }
 
-  .mat-menu-content {
-    .mat-menu-item {
-      color: mat-color($warn_);
+   .mat-caption {
+     color: $pale-gray;
+  }
+
+  .mat-menu {
+    &-content {
+
+      .mat-menu-item {
+        font-weight: 500;
+        color: $black;
+      }
+
+      .button-warn {
+        color: mat-color($warn_)
+      }
+    }
+
+    &-panel {
+      @include mat-elevation(1);
     }
   }
 
@@ -178,14 +217,14 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
     padding: 24px !important;
   }
 
-  th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
-    padding-left: 4px !important;
+  th.mat-header-cell:first-of-type,
+  td.mat-cell:first-of-type,
+  td.mat-footer-cell:first-of-type {
+    padding: 16px 8px 16px 4px !important;
   }
 
   .mat-input-wrapper {
-
     .mat-form-field {
-
       width: 170px !important;
 
       @include mobile-portrait {
@@ -194,16 +233,190 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
     }
   }
 
-  .mat-checkbox-layout {
-    white-space: normal !important;
-    text-align: left;
+  th.mat-header-cell:last-of-type,
+  td.mat-cell:last-of-type,
+  td.mat-footer-cell:last-of-type {
+    padding-right: 0!important;
   }
 
-  .mat-checkbox-label {
-    margin: 12px 0;
-    font-size: 12px;
-    line-height: 13.5px;
+  .mat-checkbox {
+    &-layout {
+      white-space: normal !important;
+      text-align: left;
+    }
+
+    &-label {
+      margin: 12px 0;
+      font-size: 12px;
+      line-height: 13.5px;
+    }
   }
+
+  .mat-expansion {
+    &-indicator::after {
+      border-width: 0 3px 3px 0 !important;
+      padding: 4px !important;
+      color: $black;
+    }
+
+    &-panel {
+      border-radius: 12px !important;
+
+      &-header {
+        height: 60px;
+        font-weight: 600;
+        font-size: 22px;
+        color: $black;
+      }
+
+      &-body {
+        font-size: 14px;
+        color: $light-gray;
+
+        .content {
+          height: 450px;
+          overflow: auto;
+
+          pre {
+            margin: 0;
+          }
+        }
+      }
+
+      &:not([class*=mat-elevation-z]) {
+        @include mat-elevation(0);
+      }
+    }
+  }
+
+  .mat-form-field {
+    line-height: 1.35;
+  }
+
+  .mat-select-panel {
+    &:not([class*=mat-elevation-z]) {
+      @include mat-elevation(1);
+    }
+  }
+
+  .mat-option {
+    font-size: initial;
+    font-weight: 500;
+  }
+
+  .custom-mat-dialog {
+    width: 420px;
+
+    .mat-dialog {
+      &-container {
+        @include mat-elevation(0);
+        position: relative;
+        border-radius: 12px;
+        padding: 32px;
+
+        .button-cross {
+          @include sm-icon-size();
+          position: absolute;
+          top: 22px;
+          right: 22px;
+        }
+      }
+
+      &-content {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+
+        .mat-form-field {
+          width: 100%;
+          font-weight: 500;
+
+          &-label-wrapper {
+            font-weight: 400;
+          }
+        }
+      }
+
+      &-title {
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+
+      &-actions {
+        justify-content: space-between;
+
+        .color-red {
+          color: mat-color($warn_);
+        }
+
+        button {
+          margin: 0 !important;
+          padding: 12px 32px;
+          line-height: 16px;
+
+          &[color="primary"] {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  .cdk-overlay-backdrop {
+    background-color: $light-gray;
+  }
+
+  .mat-button-focus-overlay {
+    background-color: transparent;
+  }
+
+  .mat-flat-button,
+  .mat-icon-button {
+
+    &.mat-button-disabled {
+      background-color: transparent;
+
+      svg path {
+        fill: $special-dark-gray !important;
+      }
+    }
+
+    &.landmarks-active {
+      svg path:not([fill-rule]) {
+        fill: $green;
+      }
+    }
+  }
+
+  .subjects {
+
+    mat-list-option[aria-selected="true"] {
+      border-bottom: 1px solid $primary;
+      background: $primary-active;
+
+      .avatar {
+
+        svg {
+
+          path {
+            fill: $primary;
+          }
+
+          circle {
+            stroke: $primary;
+          }
+        }
+      }
+    }
+
+    mat-list-option {
+      .mat-list-item-content-reverse {
+        padding: 0px 8px !important;
+      }
+    }
+  }
+  
 }
 
 @include angular-material-typography($typography);

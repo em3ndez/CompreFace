@@ -16,6 +16,12 @@
 
 package com.exadel.frs.core.trainservice.system.global;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
+import java.util.UUID;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Constants {
 
     public static final String X_FRS_API_KEY_HEADER = "x-api-key";
@@ -25,7 +31,6 @@ public class Constants {
     public static final String SOURCE_IMAGE = "source_image";
     public static final String TARGET_IMAGE = "target_image";
     public static final String FACE_PLUGINS = "face_plugins";
-    public static final String DET_PROB_THRESHOLD = "det_prob_threshold";
     public static final String PREDICTION_COUNT_REQUEST_PARAM = "prediction_count";
     public static final String API_KEY_DESC = "Api key of application and model";
     public static final String IMAGE_FILE_DESC = "Image for recognizing";
@@ -49,4 +54,8 @@ public class Constants {
     public static final String SOURCE_IMAGE_DESC = "File to be verified";
     public static final String TARGET_IMAGE_DESC = "Reference file to check the processed file";
     public static final String STATUS = "status";
+
+    public static final String DEMO_API_KEY = "00000000-0000-0000-0000-000000000002";
+    public static final String FACENET2018 = "Facenet2018";
+    public static final String SERVER_UUID = UUID.randomUUID().toString();
 }

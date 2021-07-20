@@ -15,20 +15,16 @@
   -->
 
 <div class="model-list">
-  <div class="header-section">
-    <h3>{{ 'models.create_dialog.title' | translate }}</h3>
-    <form class="search-input">
-      <input
-        matInput
-        type="text"
-        class="search-input"
-        [(ngModel)]="search"
-        [ngModelOptions]="{ standalone: true }"
-        placeholder="{{ 'models.search.title' | translate }}"
-      />
-      <mat-icon class="material-icons notranslate"> search </mat-icon>
-    </form>
-  </div>
+  <app-search-table
+    [currentRole]="userRole$ | async"
+    [requiredRole]="roleEnum.User"
+    (inputSearch)="onSearch($event)"
+    (modalWindow)="onCreateNewModel()"
+    title="{{ 'models.create_dialog.title' | translate }}"
+    buttonText="{{ 'applications.create.button' | translate }}"
+    searchPlaceholder="{{ 'models.search.title' | translate }}"
+  >
+  </app-search-table>
   <app-spinner *ngIf="isLoading$ | async">></app-spinner>
   <app-model-table
     *ngIf="(tableConfig$ | async)?.data.length > 0"
@@ -41,17 +37,11 @@
     (edit)="edit($event)"
     (delete)="delete($event)"
     (test)="test($event)"
+    (collection)="mangeCollection($event)"
   >
   </app-model-table>
   <div class="create-new-message" *ngIf="(tableConfig$ | async)?.data.length === 0">
-    <mat-icon>info</mat-icon>
-    <p>
-      {{ 'models.create_model_info' | translate }}
-    </p>
+    <mat-icon svgIcon="info_new"></mat-icon>
+    <p class="mat-caption">{{ 'models.create_model_info' | translate }}</p>
   </div>
-</div>
-<div class="add-model-button-container" *ngIf="userRole$ | async as userRole">
-  <button *ngIf="userRole !== roleEnum.User" mat-flat-button color="primary" (click)="onCreateNewModel()">
-    {{ 'common.capital.create' | translate }}
-  </button>
 </div>

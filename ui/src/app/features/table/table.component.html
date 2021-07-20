@@ -14,7 +14,7 @@
   ~ permissions and limitations under the License.
   -->
 
-<table mat-table *ngIf="!isLoading" [dataSource]="data">
+<table mat-table *ngIf="!isLoading" [dataSource]="data" fixedLayout="true">
   <caption>
     {{
       'applications.caption' | translate
@@ -22,7 +22,7 @@
   </caption>
 
   <!-- Position Column -->
-  <ng-container matColumnDef="Name">
+  <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef scope="col"></th>
     <td
       mat-cell
@@ -31,9 +31,10 @@
       matTooltip="{{ element.name.length >= maxElementLength ? element.name : '' }}"
       [matTooltipDisabled]="disableToolTip(element.name.length >= maxElementLength ? element.name : '')"
     >
-      <div class="mat-subheading-1 application-name-label">{{ element.name | truncate: maxElementLength }}</div>
-      <div class="mat-body-2">
-        <span>{{ 'applications.owner' | translate }}: </span><span class="application-owner-label">{{ element.owner }}</span>
+      <div class="app--title mat-subheading-1">{{ element.name }}</div>
+      <div class="app--name mat-body-2">
+        <span class="app--name_label">{{ 'applications.owner' | translate }}: </span>
+        <span class="app--name_owner">{{ element.owner }}</span>
       </div>
     </td>
   </ng-container>
@@ -44,7 +45,7 @@
 
 <ng-container *ngIf="data.length < 1 && !isLoading">
   <div class="create-new-message">
-    <mat-icon>info</mat-icon>
+    <mat-icon svgIcon="info_new" inline="true"></mat-icon>
     <p class="mat-caption">{{ 'users.search.no_results' | translate }}</p>
   </div>
 </ng-container>

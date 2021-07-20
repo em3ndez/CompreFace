@@ -19,7 +19,6 @@ package com.exadel.frs.commonservice.handler;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.client.HttpStatusCodeException;
 
 import static org.springframework.http.HttpStatus.*;
 
@@ -53,6 +52,9 @@ public enum CommonExceptionCode implements HttpExceptionCode {
     INCORRECT_ARGUMENT(36, BAD_REQUEST),
 
     FACES_SERVICE_EXCEPTION(41, INTERNAL_SERVER_ERROR),
+    SUBJECT_NOT_FOUND(42, NOT_FOUND),
+    SUBJECT_ALREADY_EXISTS(43, BAD_REQUEST),
+    EMBEDDING_NOT_FOUND(44, NOT_FOUND),
 
     UNDEFINED(0, BAD_REQUEST);
 

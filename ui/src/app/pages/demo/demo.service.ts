@@ -16,8 +16,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
+import { DemoModel } from '../../data/interfaces/demo-model';
+import { DemoStatus } from '../../data/interfaces/demo-status';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +28,11 @@ import { environment } from '../../../environments/environment';
 export class DemoService {
   constructor(private http: HttpClient) {}
 
-  getModel(): Observable<any> {
-    return this.http.get(`${environment.adminApiUrl}user/demo/model`);
+  getModel(): Observable<DemoModel> {
+    return this.http.get<DemoModel>(`${environment.adminApiUrl}user/demo/model`);
+  }
+
+  getStatus(): Observable<DemoStatus> {
+    return this.http.get<DemoStatus>(`${environment.userApiUrl}consistence/status`);
   }
 }

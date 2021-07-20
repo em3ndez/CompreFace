@@ -47,8 +47,10 @@ import { ToolBarModule } from './features/tool-bar/tool-bar.module';
 import { AppStoreModule } from './store/app-store.module';
 import { MainLayoutComponent } from './ui/main-layout/main-layout.component';
 import { DemoLayoutComponent } from './ui/demo-layout/demo-layout.component';
-import { MatSelectModule } from '@angular/material/select';
 import { UserInfoResolver } from './core/user-info/user-info.resolver';
+import { RoleEditDialogComponent } from './features/role-edit-dialog/role-edit-dialog.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MergerDialogComponent } from './features/merger-dialog/merger-dialog.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { UserInfoResolver } from './core/user-info/user-info.resolver';
     EditDialogComponent,
     AlertComponent,
     DeleteDialogComponent,
+    RoleEditDialogComponent,
+    MergerDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +106,7 @@ import { UserInfoResolver } from './core/user-info/user-info.resolver';
     },
   ],
   bootstrap: [AppComponent],
-  exports: [],
-  entryComponents: [CreateDialogComponent, AlertComponent, EditDialogComponent, DeleteDialogComponent],
+  exports: [CreateDialogComponent],
+  entryComponents: [CreateDialogComponent, AlertComponent, EditDialogComponent, DeleteDialogComponent, RoleEditDialogComponent],
 })
 export class AppModule {}

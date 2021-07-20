@@ -42,10 +42,10 @@ recognition, face verification, face detection, landmark detection, age, and gen
 
   * [Overview](#overview)
   * [Screenshots](#screenshots)
-  * [Feedback survey](#feedback-survey)
+  * [News and updates](#news-and-updates)
   * [Features](#features)
   * [Getting Started with CompreFace](#getting-started-with-compreface)
-  * [CompreFace SDKs](#compreFace-SDKs)
+  * [CompreFace SDKs](#compreface-sdks)
   * [Documentation](/docs)
     * [How to Use CompreFace](/docs/How-to-Use-CompreFace.md)
     * [Face Services and Plugins](/docs/Face-services-and-plugins.md)
@@ -75,10 +75,9 @@ CompreFace is delivered as a docker-compose config and supports different models
 <img src="https://user-images.githubusercontent.com/3736126/107063429-0f7cb400-67e3-11eb-9ecc-27a1a0955923.png" alt="compreface-main-page" width=390px style="padding: 10px;">
 </p>
 
-# Feedback survey
+# News and updates
 
-We need your help to better understand which features we should add to the service and how we can improve it further! Our feedback form is totally anonymous, and answering the questions will take just 2 minutes of your time:
-https://forms.gle/ybAEPc3XmzEcpv4M8
+[Subscribe](https://exadel-7026941.hs-sites.com/en/en/compreface-news-and-updates) to CompreFace News and Updates to never miss new features and product improvements.
 
 # Features
 
@@ -122,9 +121,9 @@ gender recognition
 7. Run command: `docker-compose up -d`
 8. Open http://localhost:8000/login
 
-### Getting started for devs
+### Getting started for contributors
 
-Follow this link: https://github.com/exadel-inc/CompreFace/tree/develop/dev
+Follow this [link](/dev)
 
 # CompreFace SDKs
 
@@ -139,32 +138,16 @@ More documentation is available [here](/docs)
 # Contributing
 
 We want to improve our open-source face recognition solution, so your contributions are welcome and greatly appreciated. 
-After creating your first contributing pull request, you will receive a request to sign our Contributor License Agreement by commenting your pull request with a special message.
 
-### Formatting standards
+* Just use CompreFace and [report](https://github.com/exadel-inc/CompreFace/issues) ideas and bugs on GitHub
+* Share knowledge and experience via posting guides and articles, or just improve our [documentation](https://github.com/exadel-inc/CompreFace/tree/master/docs)
+* Create [SDKs](https://github.com/topics/compreface-sdk) for favorite programming language, we will add it to our documentation
+* Integrate CompreFace support to other platforms like [Home Assistant](https://www.home-assistant.io/) or [DreamFactory](https://www.dreamfactory.com/), we will add it to our documentation
+* [Contribute](CONTRIBUTING.md) code
+* Add [plugin](/docs/Face-services-and-plugins.md#face-plugins) to face services
+* And last, but not least, you can just give a star to our free facial recognition system on GitHub
 
-For java just import dev/team_codestyle.xml file in your IntelliJ IDEA.
-
-### Report Bugs
-
-Please report any bugs [here](https://github.com/exadel-inc/CompreFace/issues).
-
-If you are reporting a bug, please specify:
-
-- Your operating system name and version
-- Any details about your local setup that might be helpful in troubleshooting
-- Detailed steps to reproduce the bug
-
-
-### Submit Feedback
-
-The best way to send us feedback is to file an issue at https://github.com/exadel-inc/CompreFace/issues.
-
-If you are proposing a feature, please:
-
-- Explain in detail how it should work.
-- Keep the scope as narrow as possible to make it easier to implement.
-
+For more information, visit our [contributing](CONTRIBUTING.md) guide, or create a [discussion](https://github.com/exadel-inc/CompreFace/discussions).
 
 # License info
 

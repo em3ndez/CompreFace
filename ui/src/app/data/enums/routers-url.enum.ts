@@ -20,5 +20,6 @@ export enum Routes {
   Application = '/application',
   SignUp = '/sign-up',
   TestModel = '/test-model',
+  ManageCollection = '/manage-collection',
   Demo = '/demo',
 }

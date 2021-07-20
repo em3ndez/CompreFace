@@ -13,48 +13,43 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+@import "media.scss";
+@import "mixins.scss";
 
-@import "src/styles/colors";
+.result {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  grid-gap: 20px;
+  grid-template-areas:"drag-n-drop drag-n-drop" "process-img process-img" "request response";
 
-.result-container {
-  padding: 25px 50px;
-  position: relative;
-  min-height: 350px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  .result-image {
-    display: flex;
-    justify-content: center;
-    flex-shrink: 1;
-    width: 100%;
-    canvas {
-      display: inline;
-      min-width: 0;
-      min-height: 0;
-    }
+  @include mobile-portrait {
+    grid-template-columns: 1fr;
+    grid-template-areas:"process-img" "request" "response";
   }
 
-  .result-sections {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding-bottom: 10px;
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-template-areas:"process-img" "request" "response";
+  }
 
-    .result-section-image {
-      flex-grow: 1;
-    }
+  .drag-n-drop {
+    grid-area: drag-n-drop;
+  }
 
-    .result-textarea {
-      border: none;
-      resize: none;
-      width: 100%;
-      background-color: $white;
-    }
+  .process-img {
+    grid-area: process-img;
+    text-align: center;
+  }
 
-    mat-expansion-panel {
-      margin: 10px;
-    }
+  .request {
+    grid-area: request;
+    min-width: 100%;
+  }
+
+  .response {
+    grid-area: response;
+    min-width: 100%;
   }
 }
